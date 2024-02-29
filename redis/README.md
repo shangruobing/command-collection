@@ -4,13 +4,14 @@
 sudo apt search redis
 sudo apt-get update
 sudo apt-get install redis-server
-/usr/bin/redis-server
 
-redis.conf设置守护进程
+# set dameon process
+# /usr/bin/redis-server/redis.conf
 daemonize yes 
 ./redis-server &
 ```
 
 ```shell
+# docker
 sudo docker run -itd --name redis -p 6379:6379 redis:latest --requirepass 'your-password'
 ```

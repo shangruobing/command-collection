@@ -2,7 +2,7 @@
 
 ```shell
 sudo apt-get install mysql-server
-#连接服务
+# 连接服务
 sudo mysql -u root -p
 show databases;
 create database nfqa;
@@ -12,18 +12,18 @@ mysql> source /home/NFQA/data/nfqa.sql;
 service mysql status
 service mysql start
 service mysql stop
+```
 
-#退出命令行
+## Exit
+```Shell
 quit
 select user,authentication_string from user where user='root';
 update user set authentication_string='123456' where user='root';
 
-
 create user 'django-user'@'localhost' identified by '123456';
 grant usage on *.* to 'django-user'@'localhost';
 grant all privileges on nfqa.* to 'django-user'@'localhost';
-
-INSERT INT
+```
 
 ## Remote Connection
 

@@ -1,7 +1,7 @@
 # Linux
 
 ```shell
-#查找僵尸进程
+# 查找僵尸进程
 ps -A -ostat,ppid,pid,cmd |grep -e '^[Zz]'
 ```
 

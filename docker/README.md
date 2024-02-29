@@ -5,6 +5,7 @@
 ```shell
 # 安装启动Docker
 sudo apt install -y docker.io
+# 注册docker进服务
 sudo systemctl start docker
 sudo systemctl enable docker
 sudo docker version
@@ -22,7 +23,7 @@ sudo docker buildx build --platform linux/amd64 -t fundsearch:0.0.1 .
 ## Run
 
 ```shell
-#  -d表示deamon,守护进程后台执行; 8080:8080 主机端口:docker端口
+# -d表示deamon,守护进程后台执行; 8080:8080 主机端口:docker端口
 sudo docker run -itd --name fundsearch -p 8080:8080 fundsearch:0.0.1
 ```
 
