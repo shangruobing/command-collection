@@ -1,4 +1,5 @@
 # Django
+
 ```shell
 # 同步数据库
 python manage.py makemigration

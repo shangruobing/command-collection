@@ -10,7 +10,7 @@ pip install pyuwsgi --no-cache-dir
 
 sudo ln -s /home/ubuntu/.local/bin/uwsgi  /usr/bin/uwsgi
 
-uwsgi --http :8000 --module NFQA.wsgi
+uwsgi --http :8000 --module yourfile.wsgi
 
 ps -A 查看所有进程
 pkill 进程号
@@ -26,6 +26,7 @@ uwsgi --ini uwsgi.ini
 [uwsgi]
 callable = app
 http = 0.0.0.0:8000
+# 执行文件所在目录
 chdir = /app/src
 wsgi-file = src/main.py
 module = main:app
@@ -41,4 +42,3 @@ enable-threads = true
 # 在失去权限前，将master的pid写到当前文件中
 # pidfile = /app/logs/uwsgi.pid
 ```
-

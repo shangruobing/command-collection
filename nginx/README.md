@@ -10,7 +10,8 @@ service nginx start
 sudo vim /etc/nginx/sites-available/default
 # Reload configuration
 sudo nginx -t
-service nginx restart 
+# Reboot
+service nginx restart
 ```
 
 ## Example
@@ -60,4 +61,3 @@ server {
 
 }
 ```
-
