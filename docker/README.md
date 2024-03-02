@@ -32,16 +32,16 @@ sudo docker run -itd --name containername -p 8080:8080 imagename:0.0.1
 ```shell
 # 登录帐号推送至Dockerhub
 sudo docker login
-sudo docker tag imagename:0.0.1 username/org:imagename-0.0.1
-sudo docker push username/org:imagename-0.0.1
+sudo docker tag imagename:0.0.1 username/repository:imagename-0.0.1
+sudo docker push username/repository:imagename-0.0.1
 
 # 从Dockerhub下载image并运行
-sudo docker pull username/org:imagename-0.0.1
+sudo docker pull username/repository:imagename-0.0.1
 
 sudo docker run -itd \
   --name containername-0.0.1 \
   -p 8080:8080 \
-  username/org:imagename-0.0.1
+  username/repository:imagename-0.0.1
 ```
 
 ## Common
@@ -51,6 +51,8 @@ sudo docker run -itd \
 sudo docker ps -a
 # 删除所有容器
 sudo docker rm -f $(sudo docker ps -aq)
+# 查询删除进行
+sudo docker rmi -f $(sudo docker images -q "username/re po:imagename-*")
 # 列出所有镜像
 sudo docker images
 # 根据Id删除镜像
