@@ -130,73 +130,7 @@ ln file link
 ln -s item link
 ```
 
-## Nohup
-
-nohup(no hang up)用于在后台运行另一个命令，并将其与当前的 Shell 会话分离。这确保即使用户注销或终端关闭，命令仍然会继续运行
-
-> \> 标准输出重定向
-> 2>&1 将标准错误重定向到与标准输出相同的位置
-> & 将进程发送到后台运行
-
-```shell
-nohup python main.py > log.txt 2>&1 &
-nohup java -jar backend-0.0.1.jar > log.txt 2>&1 &
-```
-
-## Network
-
-```shell
-# 查看本机IP地址
-ifconfig
-# 如果要检查端口号为80的情况，可以运行
-netstat -an | grep 80
-# 查看特定端口防火墙的规则
-iptables -L INPUT -n -v | grep 80
-iptables -S | grep 80
-# 解析域名
-nslookup your_domain
-dig your_domain
-# ufw Uncomplicated FireWall
-systemctl status ufw
-systemctl start ufw
-systemctl stop ufw
-```
-
-## Memory
-
-```shell
-# 查看可用内存
-free
-```
-
-## Disk
-
-```shell
-# 查看可用内存
-df
-```
-
-## Curl
-
-```shell
-# 查找僵尸进程
-ps -A -ostat,ppid,pid,cmd |grep -e '^[Zz]'
-
-# CURL
-curl http://127.0.0.1:8000/api/ping
-
-curl -X POST \
-    -H "Content-Type: application/json" \
-    -d '{"question": "hello"}' \
-    http://127.0.0.1:8000/api/say-hello
-
-# 查看端口占用
-lsof -i :8000
-# 杀死进程
-kill -9 PID
-```
-
-# Redirect
+## Redirect
 
 ```shell
 # 文件描述符：标准输入文件、标准输出文件、标准错误文件 0、1、2
@@ -355,6 +289,19 @@ kill -9 PID
 killall name
 ```
 
+## Nohup
+
+nohup(no hang up)用于在后台运行另一个命令，并将其与当前的 Shell 会话分离。这确保即使用户注销或终端关闭，命令仍然会继续运行
+
+> \> 标准输出重定向
+> 2>&1 将标准错误重定向到与标准输出相同的位置
+> & 将进程发送到后台运行
+
+```shell
+nohup python main.py > log.txt 2>&1 &
+nohup java -jar backend-0.0.1.jar > log.txt 2>&1 &
+```
+
 ## Environment
 
 `~/.bash_profile` or `~/.bashrc` or `~/.zshrc`
@@ -376,14 +323,14 @@ source ~/.bash_profile
 
 ## Vim
 
-- 插入模式  ` I`
+- 插入模式  `I`
 - 光标模式 复制  `yy` 粘贴 `p`
 
 - 命令模式 `ESC`
-  - 退出 ` :q`
+  - 退出 `:q`
   - 保存 `:w`
   - 另存为 `:w filename`
-  - 切换到下一个文件 ` :n`
+  - 切换到下一个文件 `:n`
   - 切换回上一个文件 `:N`
   - 添加一个文件到编辑会话 `:e output.txt`
   - 查看正在编辑的文件列表 `:buffers`
@@ -455,5 +402,100 @@ rpm -q package_name
 yum info package_name
 # 查看某具体文件由哪个软件包安装得到
 rpm -qf file_name
+```
+
+## Memory
+
+```shell
+# 查看可用内存
+free
+```
+
+## Disk
+
+```shell
+# 查看可用内存
+df
+# 查看已挂载的文件系统列表
+mount
+# 卸载
+umount device_name
+# 磁盘分区
+fdisk device_name
+# 创建新的文件系统
+mkfs -t ext3 device_name
+# 测试、修复文件系统
+fsck device_name
+# 格式化
+fdformat device_name
+```
+
+## Curl
+
+```shell
+# 查找僵尸进程
+ps -A -ostat,ppid,pid,cmd |grep -e '^[Zz]'
+
+# CURL
+curl http://127.0.0.1:8000/api/ping
+
+curl -X POST \
+    -H "Content-Type: application/json" \
+    -d '{"question": "hello"}' \
+    http://127.0.0.1:8000/api/say-hello
+
+# 查看端口占用
+lsof -i :8000
+# 杀死进程
+kill -9 PID
+```
+
+## Network
+
+```shell
+# 查看本机IP地址
+ifconfig
+# 如果要检查端口号为80的情况，可以运行
+netstat -an | grep 80
+# 查看特定端口防火墙的规则
+iptables -L INPUT -n -v | grep 80
+iptables -S | grep 80
+# 解析域名
+nslookup your_domain
+dig your_domain
+# ufw Uncomplicated FireWall
+systemctl status ufw
+systemctl start ufw
+systemctl stop ufw
+# 发送数据包
+ping github.com
+# 跟踪网络数据包的传输路径
+traceroute github.com
+# 检查网络设置
+netstat
+# 文件传输协议
+ftp fileserver
+# 下载工具
+wget http://linuxcommand.org/index.php
+# 安全登录远程计算机
+ssh username@remote-computer
+# 安全传输文件
+scp username@remote-computer:doc.txt .
+sftp remote-computer
+```
+
+## File Search
+
+```shell
+# 查找文件
+find directory
+# 查找文件
+find directory -type f
+# 查找目录
+find directory -type d
+# 查找大于1M的JPG文件
+find directory -type f -name "*.JPG" -size +1M
+# 查找并删除
+find directory -type f -name '*.BAK' -delete
 ```
 

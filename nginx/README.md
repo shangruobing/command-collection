@@ -58,6 +58,11 @@ server {
 	location ~ /api/ {
 		proxy_pass http://xxx.xxx.xxx.xx:5000;
 	}
-
+	
+	# Static Files
+	location ~ .*\.(gif|jip|jpeg|png|svg|bmp|swf)$ {
+		proxy_pass http://localhost:8000;
+		expires 30d;
+	}
 }
 ```
