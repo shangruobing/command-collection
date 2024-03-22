@@ -75,12 +75,27 @@ sudo docker volume create volume-name
 ## Docker 打包出错
 
 > ERROR [internal] load metadata for docker.io
-> 将/Users/Username/.docker/config.json 下的 credsStore 改为 credStore
+
+```shell
+docker logout
+docker login
+```
+
+Modify the `credsStore` in `/Users/Username/.docker/config.json `
 
 ```json
+# .docker/config.json 
 {
-  //"credsStore": "desktop"
-  "credStore": "desktop"
+	"auths": {
+		"https://index.docker.io/v1/": {}
+	},
+	"credsStore": "osxkeychain",
+	"currentContext": "desktop-linux",
+	"plugins": {
+		"-x-cli-hints": {
+			"enabled": "true"
+		}
+	}
 }
 ```
 

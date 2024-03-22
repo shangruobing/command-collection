@@ -409,13 +409,17 @@ rpm -qf file_name
 ```shell
 # 查看可用内存
 free
+free -h
 ```
 
 ## Disk
 
 ```shell
-# 查看可用内存
+# 查看可用磁盘大小
 df
+df -h
+# 查看文件夹大小
+du -sh directory
 # 查看已挂载的文件系统列表
 mount
 # 卸载
