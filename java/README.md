@@ -1,6 +1,7 @@
 # Java
 
 ```shell
+
 wget https://repo.huaweicloud.com/java/jdk/8u201-b09/jdk-8u201-linux-x64.tar.gz
 
 tar -zxvf jdk-8u201-linux-x64.tar.gz

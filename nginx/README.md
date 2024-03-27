@@ -8,8 +8,10 @@ nginx -v
 service nginx start
 # Configuration
 sudo vim /etc/nginx/sites-available/default
-# Reload configuration
+# Check configuration
 sudo nginx -t
+# Reload configuration
+sudo nginx -s reload
 # Reboot
 service nginx restart
 ```

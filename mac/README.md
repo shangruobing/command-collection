@@ -42,11 +42,53 @@ source ~/.bash_profile
 printenv
 ```
 
-# Homebrew
+Env
 
 ```shell
-brew install package
-brew uninstall package
-brew cleanup --prune=all
+export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+
+# HomeBrew
+export PATH=$PATH:/opt/homebrew/bin
+export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.aliyun.com/homebrew/homebrew-bottles
+
+# Proxy
+export https_proxy=http://127.0.0.1:7890
+export http_proxy=http://127.0.0.1:7890
+export all_proxy=socks5://127.0.0.1:7890
+
+# Python
+alias python="python3"
+alias pip="pip3"
+export PATH=$PATH:/Users/Ruobing/Library/Python/3.9/bin
+
+# MySQL
+export PATH=$PATH:/usr/local/mysql/bin
+
+# Maven
+export MAVEN_HOME=/usr/local/apache-maven-3.9.0
+export PATH=$PATH:$MAVEN_HOME/bin
+
+# MacTeX
+export TEX_HOME=/usr/local/texlive/2024/bin/universal-darwin
+export PATH=$PATH:$TEX_HOME
+
+# MongoDB
+export PATH=$PATH:/usr/local/mongodb/bin
+
+# OpenAI
+export OPENAI_API_KEY="sk-******"
+
+# Conda
+__conda_setup="$('/opt/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/opt/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/opt/anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/opt/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
 ```
 
