@@ -10,5 +10,7 @@ pip show numpy
 # export and install the dependency
 pip freeze > requirements.txt
 pip install -r requirements.txt
+
+pip install package --no-deps
 ```
 

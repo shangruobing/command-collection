@@ -64,6 +64,9 @@ sudo docker exec -it container_id /bin/sh
 sudo docker exec -it container_name /bin/sh
 # 将容器内的数据拷贝到主机
 sudo docker cp container_name:/upload /home/ubuntu/upload
+# 启动和重启
+sudo docker start container_name
+sudo docker restart container_name
 ```
 
 ## Volume

@@ -418,8 +418,13 @@ free -h
 # 查看可用磁盘大小
 df
 df -h
+# 查看当前目录
+du -sh . --max-depth=1
 # 查看文件夹大小
-du -sh directory
+du -h directory
+du -h | sort -h
+# 查看子文件夹
+du -h --max-depth=1
 # 查看已挂载的文件系统列表
 mount
 # 卸载
@@ -502,4 +507,20 @@ find directory -type f -name "*.JPG" -size +1M
 # 查找并删除
 find directory -type f -name '*.BAK' -delete
 ```
+
+## Compress
+
+````shell
+sudo apt-get install zip
+sudo apt-get install unzip
+# compress
+zip filename.zip filename1 filename2
+zip -r dir_name.zip dir_name
+# decompress
+unzip filename.zip
+# add file into zip
+zip archive.zip newfile.txt
+# check content
+zipinfo archive.zip
+````
 
