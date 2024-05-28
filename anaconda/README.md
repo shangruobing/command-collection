@@ -23,5 +23,14 @@ vim .condarc
 conda env export > environment.yml
 conda env create -f environment.yml
 conda install --file requirements.txt
+# offline package
+conda pack -n env_name -o env_name.tar.gz
+tar -xzf env_name.tar.gz -C env_name
+source env_name/bin/activate
+conda-unpack
+# remove temp and cache
+conda clean --all
+# clone the env
+conda create --name new_env --clone old_env
 ```
 

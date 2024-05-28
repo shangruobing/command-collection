@@ -1,11 +1,11 @@
 # Django
 
 ```shell
-# 同步数据库
+# migrate databases
 python manage.py makemigration
 python manage.py migrate
-# 运行服务器
+# run server
 python manage.py runserver
-# 收集静态文件
+# collect static files
 python manage.py collectstatic
 ```

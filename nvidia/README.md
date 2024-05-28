@@ -5,6 +5,7 @@ nvidia-smi
 nvidia-smi --query-gpu=name --format=csv,noheader
 
 nvcc --version
+python -c 'import torch; print(torch.__version__)'
 python -c 'import torch; print(torch.version.cuda)'
 python -c 'import torch; print(torch.cuda.is_available())'
 

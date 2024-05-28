@@ -271,6 +271,8 @@ ps x
 ps aux
 # 动态进程信息 3s更新一次 q退出
 top
+# 更方便的进程信息
+htop
 # 使进程在后台运行
 program &
 # 查看所有作业
@@ -419,7 +421,7 @@ free -h
 df
 df -h
 # 查看当前目录
-du -sh . --max-depth=1
+du -h .
 # 查看文件夹大小
 du -h directory
 du -h | sort -h
@@ -454,7 +456,7 @@ curl -X POST \
     http://127.0.0.1:8000/api/say-hello
 
 # 查看端口占用
-lsof -i :8000
+
 # 杀死进程
 kill -9 PID
 ```
@@ -516,6 +518,8 @@ sudo apt-get install unzip
 # compress
 zip filename.zip filename1 filename2
 zip -r dir_name.zip dir_name
+# split the file
+split -b 100M -d filename.zip new_name_
 # decompress
 unzip filename.zip
 # add file into zip
@@ -523,4 +527,21 @@ zip archive.zip newfile.txt
 # check content
 zipinfo archive.zip
 ````
+
+## Auto Start
+
+```sh
+# ubuntu
+sudo vim /lib/systemd/system/rc-local.service
+
+[Install]
+WantedBy=multi-user.target
+Alias=rc-local.service
+
+sudo vim /etc/rc.local
+#!/bin/bash
+echo "start!"
+
+sudo chomod +x /etc/rc.local
+```
 
