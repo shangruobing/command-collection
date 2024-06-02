@@ -67,6 +67,10 @@ sudo docker cp container_name:/upload /home/ubuntu/upload
 # 启动和重启
 sudo docker start container_name
 sudo docker restart container_name
+# 将镜像存为tar文件
+sudo docker save -o filename.tar image_name
+# 加载镜像
+sudo docker load -i filename.tar
 ```
 
 ## Volume

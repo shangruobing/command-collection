@@ -3,6 +3,7 @@
 ```shell
 # Install
 sudo apt-get install nginx
+# Check version
 nginx -v
 # Launch service
 service nginx start
