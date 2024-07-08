@@ -11,6 +11,6 @@ sudo ./neo4j start
 sudo ./neo4j console
 sudo ./neo4j status
 
-# 导入数据
+# import the data
 ./neo4j-admin  load --from=/home/data/graph-dbms-neo4j.dump --database=yourdb
 ```

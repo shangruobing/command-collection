@@ -1,19 +1,21 @@
 # uwsgi
 
 ```shell
+# check the version
 uwsgi --version
 
 # source code complie
 sudo apt-get install libpcre3 libpcre3-dev
 pip install uwsgi --no-cache-dir
 
-# precomplie file
+# precomplie file recommended
 pip install pyuwsgi --no-cache-dir
 
 sudo ln -s /home/ubuntu/.local/bin/uwsgi  /usr/bin/uwsgi
 
 # launch server
 uwsgi --ini uwsgi.ini
+
 # simple launch
 uwsgi --http :8000 --module yourfile.wsgi
 
@@ -24,7 +26,7 @@ ps ax | grep uwsgi
 sudo kill -9 pid
 ```
 
-## example
+## Example
 
 ```ini
 # uwsgi.ini

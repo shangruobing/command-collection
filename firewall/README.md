@@ -18,5 +18,4 @@ sudo ufw default deny
 
 # Allow incoming traffic on port 7474
 sudo ufw allow 7474
-
 ```

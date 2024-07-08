@@ -46,4 +46,8 @@ git clean -f -d -n
 # Delete unversioned directories and files from the working directory
 git clean -f -d
 
+# Reset the special commit record
+git reset --soft commit_hash
+git reset --hard commit_hash
 ```
+

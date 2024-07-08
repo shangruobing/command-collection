@@ -1,7 +1,7 @@
 # Npm
 
 ```shell
- # Initialize a new Node.js project
+# Initialize a new Node.js project
 npm init
 # List installed packages in the current project
 npm list
@@ -11,5 +11,7 @@ npm install vite
 npm uninstall vite
 # Check for outdated packages in the project
 npm outdated
+# Run the script in the package.json
+npm run script_name
 ```
 

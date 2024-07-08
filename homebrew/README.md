@@ -18,5 +18,4 @@ brew outdated
 
 # Automatically update Homebrew and its packages
 brew update --auto-update
-
 ```

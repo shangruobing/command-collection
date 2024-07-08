@@ -3,16 +3,22 @@
 ```shell
 # Install
 sudo apt-get install nginx
+
 # Check version
 nginx -v
+
 # Launch service
 service nginx start
+
 # Configuration
 sudo vim /etc/nginx/sites-available/default
+
 # Check configuration
 sudo nginx -t
+
 # Reload configuration
 sudo nginx -s reload
+
 # Reboot
 service nginx restart
 ```

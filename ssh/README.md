@@ -110,11 +110,15 @@ Stop-Service sshd
 net stop sshd; net start sshd;
 Restart-Service sshd
 
+# 安装SSH Server
 sudo apt install openssh-server
+
 # 查看SSH服务是否开启
 ps aux|grep ssh
+
 # 开启服务
 sudo systemctl start ssh.service
+
 # 本地生成公钥
 ssh-keygen -R "远程服务器ip地址"
 ```

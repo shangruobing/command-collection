@@ -1,6 +1,7 @@
 # ZSH
 
 ```shell
+# check the type of shell used
 echo $SHELL
 
 # check install
@@ -14,7 +15,7 @@ sudo apt install git
 sudo chsh -s /bin/zsh
 ```
 
-# Oh-My-Zsh
+## Oh-My-Zsh
 
 ```shell
 # auto install oh-my-zsh
@@ -31,14 +32,14 @@ cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc
 # activate config file
 source ~/.zshrc
 
-# check version
+# check oh-my-zsh version
 omz version
 ```
 
-## Plugins
+### Oh-My-Zsh Plugins
 
 ```shell
-# install plugins
+# install oh-my-zsh plugins
 git clone https://github.com/zsh-users/zsh-autosuggestions \
 	${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 

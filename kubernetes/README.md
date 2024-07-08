@@ -14,6 +14,7 @@ kubectl version
 Minikube is local Kubernetes, focusing on making it easy to learn and develop for Kubernete. Minikube is a lightweight Kubernetes implementation that creates a VM on your local machine and deploys a simple cluster containing only one node.
 
 ```shell
+# install the minikube
 brew install minikube
 # start your cluster
 minikube start

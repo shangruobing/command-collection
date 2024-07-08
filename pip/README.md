@@ -8,7 +8,7 @@ pip list
 pip install pandas
 
 # Install tensorflow from the Tsinghua University mirror
-pip install tensorflow -i https://pypi.tuna.tsinghua.edu.cn/simple 
+pip install tensorflow -i https://pypi.tuna.tsinghua.edu.cn/simple
 
 # Install torch and specify a custom cache directory
 pip install torch --cache-dir=/cache
@@ -24,6 +24,4 @@ pip install -r requirements.txt
 
 # Install the package without installing its dependencies
 pip install package --no-deps
-
 ```
-
