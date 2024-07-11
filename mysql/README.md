@@ -7,6 +7,7 @@ sudo mysql -u root -p
 show databases;
 create database yourdb;
 use yourdb;
+
 # 执行SQL
 mysql> source /home/data/yourdb.sql;
 

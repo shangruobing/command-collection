@@ -25,10 +25,13 @@ sh -c "$(curl -fsSL https://install.ohmyz.sh/)"
 
 # manual install oh-my-zsh
 git clone https://github.com/ohmyzsh/ohmyzsh.git ~/.oh-my-zsh
+
 # execute install script
 sh ~/.oh-my-zsh/tools/install.sh
+
 # copy the zsh template
 cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc
+
 # activate config file
 source ~/.zshrc
 

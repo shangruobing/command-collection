@@ -3,8 +3,10 @@
 ```shell
 # check the usage of GPU
 nvidia-smi
+
 # format the output
 nvidia-smi --query-gpu=name --format=csv,noheader
+
 # check the usage of GPU every 5 seconds
 watch -n 5 -d nvidia-smi
 

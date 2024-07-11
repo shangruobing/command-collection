@@ -51,7 +51,7 @@ server {
 	}
 
 	# Backend(Docker Spring) Development
-	location ~ /backend/dev/api {
+	location /backend/dev/api {
 		rewrite ^/backend/dev/api(/.*)$ /api$1 break;
 		proxy_pass http://xxx.xxx.xxx.xx:18020;
 	}
