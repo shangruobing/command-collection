@@ -1,5 +1,7 @@
 # uwsgi
 
+uWSGI is a Web server that implements WSGI protocol, uwsgi, http and other protocols.
+
 ```shell
 # check the version
 uwsgi --version

@@ -1,5 +1,7 @@
 # Windows 搭建远程服务器
 
+Secure Shell (SSH) is a protocol for secure remote login and other secure network services over an insecure network.
+
 ## 背景
 
 服务器状况：Win11 台式机、校园网有线连接、无公网 IP

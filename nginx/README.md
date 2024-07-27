@@ -1,5 +1,7 @@
 # Nginx
 
+Nginx (pronounced “engine-x”) is a high-performance, open-source web server, reverse proxy server, and load balancer. It was created by Igor Sysoev and released in 2004, and has since gained widespread popularity due to its efficiency, scalability, and versatility.
+
 ```shell
 # Install
 sudo apt-get install nginx

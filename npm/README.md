@@ -1,5 +1,7 @@
 # Npm
 
+Npm is the world's largest software registry. Open source developers from every continent use npm to share and borrow packages, and many organizations use npm to manage private development as well.
+
 ```shell
 # Initialize a new Node.js project
 npm init

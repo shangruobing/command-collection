@@ -1,5 +1,7 @@
 # Pytorch
 
+PyTorch is an optimized tensor library for deep learning using GPUs and CPUs.
+
 ```shell
 # Install
 pip install torch torchvision torchaudio

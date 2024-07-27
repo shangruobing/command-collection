@@ -1,5 +1,7 @@
 # Python
 
+Python is a programming language that lets you work more quickly and integrate your systems more effectively.
+
 ```shell
 # install
 apt-get install install python3 python3-dev

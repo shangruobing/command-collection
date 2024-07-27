@@ -1,5 +1,7 @@
 # Anaconda
 
+Whether you want to build data science/machine learning models, deploy your work to production, or securely manage a team of engineers, Anaconda provides the tools necessary to succeed.
+
 ```shell
 # check version
 conda --version

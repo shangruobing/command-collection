@@ -1,5 +1,7 @@
 # Mac
 
+macOS is an operating system developed by Apple that runs on Macintosh computers. macOS is the first commercially successful operating system with a graphical user interface.
+
 Remove context menu uninstall residue
 
 ```shell

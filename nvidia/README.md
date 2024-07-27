@@ -1,5 +1,7 @@
 # Nvidia
 
+NVIDIA CUDA (Compute Unified Device Architecture) is a parallel computing platform and programming model developed by NVIDIA. It enables developers to use NVIDIA graphics processing units (GPUs) for general-purpose processing. CUDA provides developers with a powerful and efficient way to harness the computing power of GPUs for a wide range of applications beyond traditional graphics rendering.
+
 ```shell
 # check the usage of GPU
 nvidia-smi

@@ -1,5 +1,7 @@
 # Linux
 
+Linux is an operating system that evolved from a kernel created by Linus Torvalds when he was a student at the University of Helsinki. Generally, it is obvious to most people what Linux is. However, both for political and practical reasons, it needs to be explained further. To say that Linux is an operating system means that it's meant to be used as an alternative to other operating systems, Windows, Mac OS, MS-DOS, Solaris and others. Linux is not a program like a word processor and is not a set of programs like an office suite. Linux is an interface between computer/server hardware, and the programs which run on it.
+
 ## System
 
 ```shell
@@ -554,5 +556,27 @@ sudo vim /etc/rc.local
 echo "start!"
 
 sudo chomod +x /etc/rc.local
+```
+
+## Firewall
+
+```shell
+# Install the Uncomplicated Firewall (UFW)
+sudo apt install ufw
+
+# Show the status of UFW with verbose output
+sudo ufw status verbose
+
+# Enable UFW
+sudo ufw enable
+
+# Disable UFW
+sudo ufw disable
+
+# Set the default incoming policy to deny
+sudo ufw default deny
+
+# Allow incoming traffic on port 7474
+sudo ufw allow 7474
 ```
 

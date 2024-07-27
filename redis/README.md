@@ -1,5 +1,7 @@
 # Redis
 
+Redis can be used as a database, cache, streaming engine, message broker, and more.
+
 ## Install
 
 ```shell

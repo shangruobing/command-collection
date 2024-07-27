@@ -1,5 +1,7 @@
 # ZSH
 
+Zsh (Z-shell) is a shell for interactive use and can also be used as a script interpreter.
+
 ```shell
 # check the type of shell used
 echo $SHELL

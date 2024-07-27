@@ -1,5 +1,7 @@
 # RabbitMq
 
+RabbitMQ is a reliable and mature messaging and streaming broker, which is easy to deploy on cloud environments, on-premises, and on your local machine. It is currently used by millions worldwide.
+
 ```shell
 sudo docker run -d \
     --name rabbitmq \

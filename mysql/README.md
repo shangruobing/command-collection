@@ -1,5 +1,7 @@
 # MySQL
 
+MySQL is a popular open-source relational database management system (RDBMS). It is widely used for storing, retrieving, and managing data in various types of applications, from web development to enterprise software. MySQL uses SQL (Structured Query Language), a standard language for interacting with relational databases.
+
 ```shell
 sudo apt-get install mysql-server
 # 连接服务
