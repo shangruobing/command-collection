@@ -23,9 +23,15 @@ sudo nginx -s reload
 service nginx restart
 ```
 
-## Example
+## Location Match Rule
 
-```ini
+1. Exact matching ( = )
+2. Prefix matching, longest path first
+3. Regular expression matching ( \~ or \~\* ), The first match is selected
+
+## Configuration Example
+
+```
 server {
 	listen 80;
 	listen 443 ssl http2;
@@ -44,28 +50,35 @@ server {
 		try_files $uri $uri/ /index.html;
 	}
 
-	# Backend(Docker Spring) Production
+	# Backend(Springboot) Production
 	location /backend/api/ {
 		rewrite ^/backend/api(/.*)$ /api$1 break;
-		proxy_pass http://xxx.xxx.xxx.xx:8020;
+		proxy_pass http://localhost:8000;
 	}
 
-	# Backend(Docker Spring) Development
+	# Backend(Springboot) Development
 	location /backend/dev/api {
 		rewrite ^/backend/dev/api(/.*)$ /api$1 break;
-		proxy_pass http://xxx.xxx.xxx.xx:18020;
+		proxy_pass http://localhost:18000;
 	}
 
+	# Frontend(Vue.js) Production
+	location /frontend {
+		alias /home/ubuntu/frontend/prod/dist;
+		index index.html;
+		try_files $uri $uri/ /index.html;
+	}
+	
 	# Frontend(Vue.js) Development
 	location /frontend/dev {
-		alias /home/ubuntu/frontend/devDist/dist;
+		alias /home/ubuntu/frontend/dev/dist;
 		index index.html;
 		try_files $uri $uri/ /index.html;
 	}
 
-	# Homepage Email Backend(Flask uwsgi) Production
-	location ~ /api/ {
-		proxy_pass http://xxx.xxx.xxx.xx:5000;
+	# Homepage Backend(Flask) Production
+	location /api/ {
+		proxy_pass http://localhost:5000;
 	}
 	
 	# Static Files

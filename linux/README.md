@@ -1,5 +1,15 @@
 # Linux
 
+## System
+
+```shell
+# 查看发行版本
+cat /proc/version
+cat /etc/os-release
+uname
+uname -a
+```
+
 ## Base
 ```shell
 # 日期
@@ -422,6 +432,7 @@ df
 df -h
 # 查看当前目录
 du -h .
+du -sh .
 # 查看文件夹大小
 du -h directory
 du -h | sort -h
