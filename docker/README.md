@@ -5,9 +5,9 @@ Docker is an open platform for developing, shipping, and running applications. D
 ## Install
 
 ```shell
-# 安装启动Docker
+# Install Docker
 sudo apt install -y docker.io
-# 注册docker为服务
+# Register Docker as a service
 sudo systemctl start docker
 sudo systemctl enable docker
 sudo docker version
@@ -16,28 +16,28 @@ sudo docker version
 ## Build
 
 ```shell
-# 当前平台打包
 sudo docker build -t imagename:0.0.1 .
-# 指定平台打包
+# Build for ARM
 sudo docker build --platform linux/amd64 -t imagename:0.0.1 .
 ```
 
 ## Run
 
 ```shell
-# -d表示deamon,守护进程后台执行; 8080:8080 主机端口:docker端口
+# -d deamon
+# 8080:8080 host port:docker container port
 sudo docker run -itd --name containername -p 8080:8080 imagename:0.0.1
 ```
 
 ## Publish and Download
 
 ```shell
-# 登录帐号推送至Dockerhub
+# Login and push image to Dockerhub
 sudo docker login
 sudo docker tag imagename:0.0.1 username/repository:imagename-0.0.1
 sudo docker push username/repository:imagename-0.0.1
 
-# 从Dockerhub下载image并运行
+# Download image from Dockerhub
 sudo docker pull username/repository:imagename-0.0.1
 
 sudo docker run -itd \
@@ -49,29 +49,39 @@ sudo docker run -itd \
 ## Common
 
 ```shell
-# 列出所有容器
+# List all containers
 sudo docker ps -a
-# 删除所有容器
+
+# Remove all containers
 sudo docker rm -f $(sudo docker ps -aq)
-# 查询删除进行
+
+# Remove images
 sudo docker rmi -f $(sudo docker images -q "username/re po:imagename-*")
-# 列出所有镜像
+
+# List all images
 sudo docker images
-# 根据Id删除镜像
-sudo docker rmi -f container_id
-# 根据Id查看镜像日志
+
+# Remove image by Id
+sudo docker rmi -f image_id
+
+# View the container log
 sudo docker logs -f container_id
-# 根据Id进入到容器到bash或sh
+
+# Execute the container program
 sudo docker exec -it container_id /bin/sh
 sudo docker exec -it container_name /bin/sh
-# 将容器内的数据拷贝到主机
+
+# Copy files from container to host
 sudo docker cp container_name:/upload /home/ubuntu/upload
-# 启动和重启
+
+# Start and restart container
 sudo docker start container_name
 sudo docker restart container_name
-# 将镜像存为tar文件
+
+# Offline package the image
 sudo docker save -o filename.tar image_name
-# 加载镜像
+
+# Load a image from the offline package
 sudo docker load -i filename.tar
 ```
 
@@ -81,7 +91,7 @@ sudo docker load -i filename.tar
 sudo docker volume create volume-name
 ```
 
-## Docker 打包出错
+## Docker Building Error
 
 > ERROR [internal] load metadata for docker.io
 
@@ -93,7 +103,7 @@ docker login
 Modify the `credsStore` in `/Users/Username/.docker/config.json `
 
 ```json
-# .docker/config.json 
+# .docker/config.json
 {
 	"auths": {
 		"https://index.docker.io/v1/": {}

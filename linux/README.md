@@ -2,51 +2,67 @@
 
 Linux is an operating system that evolved from a kernel created by Linus Torvalds when he was a student at the University of Helsinki. Generally, it is obvious to most people what Linux is. However, both for political and practical reasons, it needs to be explained further. To say that Linux is an operating system means that it's meant to be used as an alternative to other operating systems, Windows, Mac OS, MS-DOS, Solaris and others. Linux is not a program like a word processor and is not a set of programs like an office suite. Linux is an interface between computer/server hardware, and the programs which run on it.
 
-## System
+## System Information
 
 ```shell
-# 查看发行版本
+# View the system version
 cat /proc/version
 cat /etc/os-release
+
+# View the system information
 uname
 uname -a
 ```
 
-## Base
+## Basic Commands
+
 ```shell
-# 日期
+# View the current date
 date
-# 日历
+
+# View the current calendar
 cal
-# 退出
+
+# Exit the current shell
 exit
-# 确定文件类型
+
+# View the file type
 file picture.jpg
-# 创建目录
+
+# Create directories
 mkdir dir1 dir2
-# 显示命令的类型
+
+# Show the type of command
 type command
-# 显示可执行程序的位置
 which command
-# 获得shell内置命令的帮助文档
+
+# Show the manual of the shell built-in command
 help command
+
+# Show the manual of the program
 # 显示程序的手册
 man program
-# 显示命令的简要描述
+
+# Show the description of the command
 whatis command
-# 别名
+
+# Create a alias
 alias name='string'
-# 删除别名
+
+# Remove a alias
 unalias name
-# 查看所有别名
+
+# List all alias
 alias
-# 清屏
+
+# Clean the screen
 clear
-# 历史
+
+# Show the history of input
 hisotry
-# 使用历史记录某一行
+# Execute the history command
 !line-number
-# 查找历史记录
+# Search the history command
 history | grep python
 ```
 
@@ -54,144 +70,176 @@ history | grep python
 
 | pattern       | meaning        |
 | ------------- | -------------- |
-| *             | 0、1、任意多个 |
-| ?             | 1、单个        |
-| [characters]  | 属于其中       |
-| [!characters] | 不属于其中     |
-| [:alnum:]     | 字母或数字     |
-| [:alpha:]     | 字母           |
-| [:digit]      | 数字           |
-| [:lower:]     | 小写字符       |
-| [:upper:]     | 大写字符       |
+| \*            | 0, 1, n        |
+| ?             | 1, n           |
+| [characters]  | Belongs to     |
+| [!characters] | Not belongs to |
+| [:alnum:]     | Alphanumeric   |
+| [:alpha:]     | Alphabetic     |
+| [:digit]      | Numeric        |
+| [:lower:]     | Lower case     |
+| [:upper:]     | Upper case     |
 
 ## Change Directory
 
 ```shell
-# 查看当前工作目录
+# Show the current directory
 pwd
-# 改变目录
+
+# Change the directory
 cd
-# 将工作目录改变成先前的工作目录
+
+# Change the directory to previous directory
 cd -
-# 用户名目录
+
+# Change the directory to the home directory
 cd ~
-# 主目录
+
+# Change the directory to the root directory
 cd
 ```
 
 ## List Files
 
 ```shell
-# 列出目录内容
+# List the files in the current directory
 ls
-# 列出目录内容 包含隐藏文件.
+
+# List the files in the current directory, including hidden files
 ls -a
-# 列出指定目录
+
+# List the specified directory
 ls ~ /usr
-# 详细列出
+
+# List the files details
 ls -l
-# 时间排序
+
+# List and Sort the files by time
 ls -t
 ls -t --reverse
-# 文件大小排序
+
+# List and Sort the files by size
 ls -S
 ```
 
 ## Editor
 
 ```shell
-# 查看文件
+# View the file content
 less filename
 more filename
 cat filename
 
-# 向前查找指定的字符
+# Find the content in the file
 /char
-# 查找下一个
+# Find the next content
 n
-# 退出
+# Quit
 q
 ```
 
 ## Copy and Move
 
-````shell
-# 复制所有HTML到指定位置
+```shell
+# Copy all html files to the target directory
 cp -u *html target
-# 将dir1中的所有文件复制的dir2中，dir2必须存在
-cp dir1/* dir2
-# 将dir1目录（及其内容）复制到dir2目录中
-cp –r dir1 dir2
-# 复制文件到当前目录
+
+# Copy files in dir to the target directory
+cp dir/* target
+
+# Cope the directory to the target directory
+cp –r dir target
+
+# Cope the file to the current directory
 cp file .
 
-# 重命名
-mv item1 item2
+# Fename file
+mv file_name new_file_name
 
-# 删除
+# Remove the files
 rm file1 file2
+
+# Remove the directory
 rm -r dir
-````
+```
 
 ## Link
 
 ```shell
-# 创建硬链接
+# Create a file link
 ln file link
-# 创建符号链接
+
+# Create a symbol link
 ln -s item link
 ```
 
 ## Redirect
 
+File descriptor:
+
+- 0: Standard input file
+- 1: Standard output file
+- 2: Standard error file
+
 ```shell
-# 文件描述符：标准输入文件、标准输出文件、标准错误文件 0、1、2
-# 标准输出重定向
+# Standard output redirection to a file
 ls > output.txt
-# 删除一个文件内容或者创建一个新的空文件
+
+# Create a new file
 > output.txt
-# 尾部追加内容
+
+# Append the content to the file
 echo hello >> output.txt
-# 标准错误重定向
+
+# Standard error redirection to a file
 error 2> error.txt
-# 将标准输出和标准错误重定向到同一个文件
+
+# Standard output and error redirection to a file
 ls > output.txt 2>&1
 ls &> output.txt
-# 忽略错误输出，位桶（bit bucket）
+
+# Ignore the error with bit bucket
 ls 2> /dev/null
-# 合并文件
+
+# Combine files
 cat file1 file2 file3
 ```
 
 ## Pipeline
 
-````shell
-# 把一个命令的标准输出传送到另一个命令的标准输入中
+```shell
+# Passes the output of one command to the another command
 ls | cat
-# 排序
+
+# Sort
 ls | sort | cat
-# 去重
+
+# Unique
 ls | uniq | cat
-# 查看去重
+
+# View Unique Result
 ls | uniq -d | cat
-# 字数统计，word count
+
+# Word count
 wc filename
-# 查找包含zip的文件
+
+# Find the zip file
 ls | grep zip | cat
-# 查找不包含zip的文件
+
+# Find don't contain the zip file
 ls | grep -v zip | cat
-# 从标准输入读取数据，并同时输出到标准输出和文件
-ls | tee output.txt | grep zip
-````
+```
 
 ## Preview
 
 ```shell
-# 打印文件的开头部分
+# View the first 5 lines of the file
 head -n 5 output.txt
-# 打印文件的/结尾部分
+
+# View the last 5 lines of the file
 tail -n 5 output.txt
-# 持续监视文件变化
+
+# Continuously view the file
 tail -f output.txt
 ```
 
@@ -199,160 +247,191 @@ tail -f output.txt
 
 ```shell
 echo hello
-# 所有文件名
+
+# Show the all files
 echo *
-# A开头的文件
+
+# Show the all files start with A
 echo A*
-# 隐藏文件
+
+# Show the hidden files
 echo .*
-# 算术表达式
+
+# Calculate the expression
 echo $((1+2))
-# 打印例子
+
 echo Number_{1..5}
 # Number_1 Number_2 Number_3 Number_4 Number_5
+
 echo {Z..A}
 # Z Y X W V U T S R Q P O N M L K J I H G F E D C B A
-# 打印变量
+
+# Show the environment variable
 echo $USER
-# 查看环境变量
+
+# View the environment variables
 printenv | cat
-# 命令替换
+
+# Command substitution
 echo $(ls)
-# 纯文本使用单引号
+
+# Show the plain text
 echo '$(ls)'
-# 输出转义字符
+
+# Show the escape character
 echo "Time's up\n"
 ```
 
 ## Shortcut keys
 
-| Shortcut | Meaning                              |
-| -------- | ------------------------------------ |
-| Ctrl-A   | 移动光标到行首                       |
-| Ctrl-E   | 移动光标到行尾                       |
-| Ctrl-Q   | 删除整行                             |
-| Ctrl-L   | 清屏                                 |
-| Ctrl-D   | 删除光标处的字符                     |
-| Ctrl-T   | 使光标处的字符和它前面的字符对调位置 |
-| Tab      | 自动补齐                             |
+| Shortcut | Meaning                                      |
+| -------- | -------------------------------------------- |
+| Ctrl-A   | Move the cursor to the beginning of the line |
+| Ctrl-E   | Move the cursor to the end of the line       |
+| Ctrl-Q   | Clear the all input                          |
+| Ctrl-L   | Clear the screen                             |
+| Ctrl-D   | Delete the character before the cursor       |
+| Ctrl-T   | Adjust the cursor position                   |
+| Tab      | Auto complete                                |
 
 ## Permission
 
-`-rwxrw-r--` 文件类型/所有者权限/组权限/其他用户权限
+`-rwxrw-r--` file `type/owner/group/others`
 
-`#`为超级管理员、`$`为用户
+`#` Super admin `$` User
 
-0为`-`、1为`x`、2为`w` 、4为`r`
+- 0 as `-`
+- 1 as`x`
+- 2 as`w`
+- 4 as`r`
 
-u为`user`、g为`group`、o为`others`、a为`all` 、默认all
+u is `use`, g is `group`, o is `others`, a is `all`, default all
 
-`+`表示添加一种权限、`-`表示删除一种权限、`=`表示只有该权限可用
+- `+` means add one kind of permission
+- `-` means remove one kind of permission
+- `=` means set one kind of permission
 
 ```shell
-# 显示身份标识
+# Show the identity of the user
 id
-# 更改文件模式 授予所有权限
+
+# Grant all permissions to the file
 chmod 777 output.txt
-# 默认权限
+
+# Default permission
 umask
-# 以其他用户身份来运行
+
+# Change the user
 su
-# 使用超级管理员权限
+
+# Use the admin permission
 sudo -l
-# 更改文件所有者和所属群组
+
+# Change the owner of file
 chown [ower][:[group]] file …
 chown tim output.txt
-# 更改文件所属群组
+
+# Change the group of file
 chgrp
-# 修改密码
+
+# Modify the password
 passwd [user]
 ```
 
 ## Process
 
-Daemon Program `守护程序`
-
-Prcesss ID `进程ID`
-
 ```shell
-# 查看进程信息 TTY:teletype电传打字机代表进程的控制终端
+# Show the process status
 ps
-# 显示所有进程
+
+# Show the all process status
 ps x
-# 更详细的信息
+
+# Show the all process status with the full format
 ps aux
-# 动态进程信息 3s更新一次 q退出
+
+# Display the process tree
 top
-# 更方便的进程信息
 htop
-# 使进程在后台运行
+
+# run the program in the background
 program &
-# 查看所有作业
+
+# Show the all jobs
 jobs
-# 使进程回到前台运行 jobspec进程编号
+
+# Run the program in the background
 fg %jobspec
-# 中断进程Ctrl-C 暂停进程Ctrl-Z
-# 使进程后台运行
+# terminate Ctrl-C pause Ctrl-Z
+
+# Run the program in the background
 bg %jobspec
-# 终止进程
+
+# Kill the process
 kill %jobspec
 kill PID1 PID2
 kill -KILL PID
 kill -9 PID
-# 发送信号给多个进程
-killall name
 ```
 
 ## Nohup
 
-nohup(no hang up)用于在后台运行另一个命令，并将其与当前的 Shell 会话分离。这确保即使用户注销或终端关闭，命令仍然会继续运行。使用 `nohup` 会在程序执行过程中忽略挂起信号，而 `&` 只是将命令放入后台执行，但不会忽略挂起信号。因此，在需要长时间运行且不受终端关闭影响的情况下，应该使用 `nohup`。
+`nohup`(no hang up) is used to run another command in the background and separate it from the current `Shell` session. 
+This ensures that the command will **continue to run** even if **the user logs out or the terminal is closed**. 
+Using `nohup` ignores pending signals during program execution, while `&` simply puts the command into the background but does not ignore pending signals. 
+Therefore, `nohup` should be used in cases where you need to **run for a long time and not be affected by terminal shutdowns**.
 
-> \> 标准输出重定向
-> 2>&1 将标准错误重定向到与标准输出相同的位置
-> & 将进程发送到后台运行
+> \> Starnard output redirection
+> 2>&1 Standard error redirection to the same position with standard output
+> & Run the command in the background
 
 ```shell
 nohup python main.py > log.txt 2>&1 &
 nohup java -jar backend-0.0.1.jar > log.txt 2>&1 &
 ```
 
-## Environment
+## Environment Variables
 
 `~/.bash_profile` or `~/.bashrc` or `~/.zshrc`
 
 ```shell
-# 查看环境变量
+# Show environment variables
 printenv
-# 查看具体变量
+
+# Show the environment variable
 printenv PATH
-# 查看Shell变量和花氨基比林
-set
-# 查看单个变量
 echo $HOME
-# 查看别名
+
+# set the environment variable
+set
+
+# Show the alias
 alias
-# 激活配置文件
+
+# activate the profile file
 source ~/.bash_profile
 ```
 
 ## Vim
 
-- 插入模式  `I`
-- 光标模式 复制  `yy` 粘贴 `p`
-
-- 命令模式 `ESC`
-  - 退出 `:q`
-  - 保存 `:w`
-  - 另存为 `:w filename`
-  - 切换到下一个文件 `:n`
-  - 切换回上一个文件 `:N`
-  - 添加一个文件到编辑会话 `:e output.txt`
-  - 查看正在编辑的文件列表 `:buffers`
+- Insert Mode `I`
+- Cursor Mode
+  - copy `yy`
+  - paste `p`
+- Command Mode `ESC`
+  - quit `:q`
+  - write `:w`
+  - save as `:w filename`
+  - change next file `:n`
+  - change previos file `:N`
+  - add a file in edit session `:e output.txt`
+  - show the edit file list `:buffers`
 
 ```shell
-# 创建空白文件
+# Create a blank file
 vim
-# 打开多个文件
+
+# Open files
 vim file1 file2
 ```
 
@@ -362,29 +441,33 @@ vim file1 file2
 
 Debian、Ubuntu、Xandros、Linspire
 
-高级工具`apt-get`
+Advance Tool `apt-get`
 
-低级工具`dpkg`
+Basic Tool `dpkg`
 
 ```shell
-# Debian
-# 查询
+# Search for a package
 apt-get update apt-cache search name
-# 安装
+
+# Install
 apt-get update apt-get install package_name
 dpkg --install package_file
-# 删除
+
+# Remove
 apt-get remove package_nam
-# 更新
+
+# Update
 apt-get update; apt-get upgrade
+
+# List
 dpkg --install package_file
-# 列出已安装的软件包列表
 dpkg --list
-# 判断软件包是否安装
+
+# Show the package information
 dpkg --status package_name
-# 显示已安装软件包的相关信息
 apt-cache show package_name
-# 查看某具体文件由哪个软件包安装得到
+
+# Show the installed package information
 dpkg --search file_name
 ```
 
@@ -392,36 +475,40 @@ dpkg --search file_name
 
 Fedora、CentOS、Red Hat Enterprise Linux、openSUSE、 Mandriva、PCLinuxOS
 
-高级工具`npm`
+Advance Tool `npm`
 
-低级工具`yum`
+Basic Tool `yum`
 
 ```shell
-# Red Hat
-# 查询
+# Search
 yum seach name
-# 安装
+
+# Install
 yum install package_name
 rpm -i package_file
-# 删除
+
+# Delete
 yum erase package_name
-# 更新
+
+# Updtae
 yum update
 rpm -U package_fil
-# 列出已安装的软件包列表
+
+# List
 rpm -qa
-# 判断软件包是否安装
 rpm -q package_name
-# 显示已安装软件包的相关信息
+
+# Show the package information
 yum info package_name
-# 查看某具体文件由哪个软件包安装得到
+
+# Show the installed package information
 rpm -qf file_name
 ```
 
 ## Memory
 
 ```shell
-# 查看可用内存
+# Show the available memory
 free
 free -h
 ```
@@ -429,37 +516,41 @@ free -h
 ## Disk
 
 ```shell
-# 查看可用磁盘大小
+# Show the avaliable disk
 df
 df -h
-# 查看当前目录
+
+# Show the disk usage in the current directory
 du -h .
 du -sh .
-# 查看文件夹大小
+
+# Show the disk usage in the directory
 du -h directory
 du -h | sort -h
-# 查看子文件夹
 du -h --max-depth=1
-# 查看已挂载的文件系统列表
+
+# Show the mount file list
 mount
-# 卸载
+
+# Unmount the device
 umount device_name
-# 磁盘分区
+
+# Create a new partition
 fdisk device_name
-# 创建新的文件系统
+
+# Create a new file system
 mkfs -t ext3 device_name
-# 测试、修复文件系统
+
+# Test and repair the file system
 fsck device_name
-# 格式化
+
+# Format the device
 fdformat device_name
 ```
 
 ## Curl
 
 ```shell
-# 查找僵尸进程
-ps -A -ostat,ppid,pid,cmd |grep -e '^[Zz]'
-
 # CURL
 curl http://127.0.0.1:8000/api/ping
 
@@ -467,43 +558,49 @@ curl -X POST \
     -H "Content-Type: application/json" \
     -d '{"question": "hello"}' \
     http://127.0.0.1:8000/api/say-hello
-
-# 查看端口占用
-
-# 杀死进程
-kill -9 PID
 ```
 
 ## Network
 
 ```shell
-# 查看本机IP地址
+# Show the IP address 
 ifconfig
-# 如果要检查端口号为80的情况，可以运行
+
+# Show the port network status
 netstat -an | grep 80
-# 查看特定端口防火墙的规则
+
+# Show the iptables status
 iptables -L INPUT -n -v | grep 80
 iptables -S | grep 80
-# 解析域名
+
+# Decode the domain name
 nslookup your_domain
 dig your_domain
+
 # ufw Uncomplicated FireWall
 systemctl status ufw
 systemctl start ufw
 systemctl stop ufw
-# 发送数据包
+
+# Send the package
 ping github.com
-# 跟踪网络数据包的传输路径
+
+# Trace the route
 traceroute github.com
-# 检查网络设置
+
+# Check the network connection
 netstat
-# 文件传输协议
+
+# File transfer protocol
 ftp fileserver
-# 下载工具
+
+# Download the file
 wget http://linuxcommand.org/index.php
-# 安全登录远程计算机
+
+# SSH remote login
 ssh username@remote-computer
-# 安全传输文件
+
+# SCP file transfer
 scp username@remote-computer:doc.txt .
 sftp remote-computer
 ```
@@ -511,35 +608,45 @@ sftp remote-computer
 ## File Search
 
 ```shell
-# 查找文件
+# Find the directory
 find directory
-# 查找文件
+
+# Find the file
 find directory -type f
-# 查找目录
+
+# Find the directory
 find directory -type d
-# 查找大于1M的JPG文件
+
+# Find the file with the name and size
 find directory -type f -name "*.JPG" -size +1M
-# 查找并删除
+
+# Find and delete the file
 find directory -type f -name '*.BAK' -delete
 ```
 
 ## Compress
 
-````shell
+```shell
+# Install the zip and unzip
 sudo apt-get install zip
 sudo apt-get install unzip
-# compress
+
+# Compress
 zip filename.zip filename1 filename2
 zip -r dir_name.zip dir_name
-# split the file
+
+# Split the file
 split -b 100M -d filename.zip new_name_
-# decompress
+
+# Decompress
 unzip filename.zip
-# add file into zip
+
+# Add file into zip
 zip archive.zip newfile.txt
-# check content
+
+# Check content
 zipinfo archive.zip
-````
+```
 
 ## Auto Start
 
@@ -579,4 +686,3 @@ sudo ufw default deny
 # Allow incoming traffic on port 7474
 sudo ufw allow 7474
 ```
-

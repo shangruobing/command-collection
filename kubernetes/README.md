@@ -9,6 +9,7 @@ The name Kubernetes originates from Greek, meaning helmsman or pilot. K8s as an 
 ```shell
 # Install kubectl on macOS
 brew install kubectl
+
 # Test to ensure the version
 kubectl version
 ```
@@ -20,10 +21,13 @@ Minikube is local Kubernetes, focusing on making it easy to learn and develop fo
 ```shell
 # install the minikube
 brew install minikube
+
 # start your cluster
 minikube start
+
 # stop your cluster
 minikube stop
+
 # dashboard
 minikube dashboard
 ```
@@ -35,14 +39,19 @@ A Kubernetes Pod is a group of one or more Containers, tied together for the pur
 ```shell
 # Run a test container image that includes a webserver
 kubectl create deployment hello-node --image=registry.k8s.io/e2e-test-images/agnhost:2.39 -- /agnhost netexec --http-port=8080
+
 # View the Deployment
 kubectl get deployments
+
 # View the Pod
 kubectl get pods
+
 # View cluster Events
 kubectl get events
+
 # View the kubectl configuration
 kubectl config view
+
 # View application logs for a container in a pod.
 kubectl logs container_name
 ```
@@ -54,8 +63,10 @@ By default, the Pod is only accessible by its internal IP address within the Kub
 ```shell
 # Expose the Pod to the public internet
 kubectl expose deployment hello-node --type=LoadBalancer --port=8080
+
 # View the Service you created
 kubectl get services
+
 # On cloud providers that support load balancers, an external IP address would be provisioned to access the Service. On minikube, the LoadBalancer type makes the Service accessible through the minikube service command.
 minikube service hello-node
 ```
@@ -67,12 +78,16 @@ The minikube tool includes a set of built-in addons that can be enabled, disable
 ```shell
 # List the currently supported addons
 minikube addons list
+
 # Enable an addon
 minikube addons enable metrics-server
+
 # View the Pod and Service you created by installing that addon
 kubectl get pod,svc -n kube-system
+
 # Check the output from metrics-server
 kubectl top pods
+
 # Disable metrics-server
 minikube addons disable metrics-server
 ```
@@ -83,8 +98,10 @@ minikube addons disable metrics-server
 # Clean up the resources you created in your cluster
 kubectl delete service hello-node
 kubectl delete deployment hello-node
+
 # Stop the Minikube cluster
 minikube stop
+
 # Optionally, delete the Minikube VM:
 minikube delete
 ```
@@ -94,22 +111,31 @@ minikube delete
 ```shell
 # list resources
 kubectl get -
+
 # show detailed information about a resource
 kubectl describe -
+
 # print the logs from a container in a pod
 kubectl logs -
+
 # execute a command on a container in a pod
 kubectl exec -
+
 # View the Node
 kubectl get nodes
+
 # View the Deployment
 kubectl get deployments
+
 # View the Pod
 kubectl get pods
+
 # View cluster Events
 kubectl get events
+
 # View the kubectl configuration
 kubectl config view
+
 # View application logs for a container in a pod.
 kubectl logs container_name
 ```
