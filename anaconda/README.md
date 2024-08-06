@@ -22,7 +22,7 @@ conda config --set auto_activate_base false
 conda env list
 
 # create a new env
-conda create -n env_name python==3.9
+conda create -n env_name python==3.12
 
 # activate
 conda activate env_name
@@ -34,7 +34,7 @@ conda deactivate
 conda env remove --name env_name
 
 # create env in the specified path
-conda create --prefix /home/user/conda-env python=3.9
+conda create --prefix /home/user/conda-env python=3.12
 
 # configuration
 vim .condarc

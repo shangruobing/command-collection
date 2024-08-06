@@ -4,8 +4,7 @@ Python is a programming language that lets you work more quickly and integrate y
 
 ```shell
 # install
-apt-get install install python3 python3-dev
-apt install python3.10-venv
+apt install -y python3.12
 
 # source code complie and install
 apt-get install gcc build-essential
@@ -21,3 +20,5 @@ python app.py
 python -m venv venv
 python -m pip install tqdm
 ```
+
+> https://www.python.org/

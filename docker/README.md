@@ -7,9 +7,12 @@ Docker is an open platform for developing, shipping, and running applications. D
 ```shell
 # Install Docker
 sudo apt install -y docker.io
+
 # Register Docker as a service
 sudo systemctl start docker
 sudo systemctl enable docker
+
+# Check the version
 sudo docker version
 ```
 

@@ -1,8 +1,66 @@
-# Windows 搭建远程服务器
+# SSH
 
 Secure Shell (SSH) is a protocol for secure remote login and other secure network services over an insecure network.
 
-## 背景
+## 基本命令
+
+```shell
+# 连接到远程主机
+ssh username@hostname
+
+# 指定端口连接
+ssh -p port_number username@hostname
+
+# 使用密钥文件连接
+ssh -i /path/to/private_key username@hostname
+```
+
+## 文件传输
+
+```shell
+# 复制文件到远程主机
+scp local_file username@hostname:/remote/directory/
+
+# 从远程主机复制文件
+scp username@hostname:/remote/file /local/directory/
+
+# 使用 SFTP
+sftp username@hostname
+```
+
+## 端口转发
+
+```shell
+# 本地端口转发
+ssh -L local_port:destination_host:destination_port username@hostname
+
+# 远程端口转发
+ssh -R remote_port:destination_host:destination_port
+
+# 动态端口转发（SOCKS 代理）
+ssh -D local_port username@hostname
+```
+
+## SSH 配置文件
+
+可以在 `~/.ssh/config` 文件中配置 SSH 连接参数，以便简化命令。例如：
+
+```sh
+Host myserver
+    HostName example.com
+    User user
+    Port 80
+    IdentityFile ~/.ssh/id_rsa
+```
+
+```shell
+# 这样就可以使用简短的命令连接
+ssh myserver
+```
+
+## Windows 搭建远程服务器
+
+### 背景
 
 服务器状况：Win11 台式机、校园网有线连接、无公网 IP
 
@@ -16,13 +74,13 @@ Secure Shell (SSH) is a protocol for secure remote login and other secure networ
 
 **核心思路：SSH+内网穿透实现外网访问**
 
-## 服务器配置
+### 服务器配置
 
-### 永不休眠模式
+#### 永不休眠模式
 
 设置 > 系统 > 电源和电池 > 设置“插入电源后，系统永不休眠“
 
-### 使用 Powershell 代替 SSH 的默认终端 cmd(可选)
+#### 使用 Powershell 代替 SSH 的默认终端 cmd(可选)
 
 ```powershell
 New-ItemProperty -Path "HKLM:\SOFTWARE\OpenSSH" `
@@ -32,9 +90,9 @@ New-ItemProperty -Path "HKLM:\SOFTWARE\OpenSSH" `
    -Force
 ```
 
-## SSH 服务器
+### SSH 服务器
 
-### 安装
+#### 安装
 
 1. 设置 > 应用 > 可选功能 > 添加可选功能 > OpenSSH 服务器与客户端
 2. 启动 SSH 服务`net start sshd` 或 `Start-Service sshd`
@@ -53,12 +111,12 @@ New-NetFirewallRule -Name sshd `
    -LocalPort 22
 ```
 
-### 密码登录
+#### 密码登录
 
 1. 个人电脑终端输入`ssh MyServer@10.66.123.123`
 2. 输入密码`12345`，注意：输入密码的过程不会显示
 
-### 免密登录(密钥)
+#### 免密登录(密钥)
 
 **核心思路：将个人电脑中的公钥拷贝至服务器的 authorized_keys 文件中，从而实现非对称加密**
 
@@ -88,7 +146,7 @@ New-NetFirewallRule -Name sshd `
 
 6. 个人电脑终端输入`ssh MyServer@10.66.123.123`即可免密登录
 
-### 相关命令
+#### 相关命令
 
 ```shell
 # 查看ip地址
@@ -125,7 +183,7 @@ sudo systemctl start ssh.service
 ssh-keygen -R "远程服务器ip地址"
 ```
 
-## 内网穿透
+### 内网穿透
 
 仅配置 SSH 只能保证在局域网(LAN)中使用，要想在外网访问，需配置内网穿透。
 
@@ -140,7 +198,7 @@ ssh -p 端口号 MyServer@域名
 ssh -p 123 MyServer@abc.de.f
 ```
 
-## 管理软件推荐
+## SSH 客户端软件推荐
 
 WinSCP：https://winscp.net/eng/index.php
 

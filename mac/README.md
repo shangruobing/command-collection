@@ -2,49 +2,48 @@
 
 macOS is an operating system developed by Apple that runs on Macintosh computers. macOS is the first commercially successful operating system with a graphical user interface.
 
-Remove context menu uninstall residue
+## Remove context menu uninstall residue
 
 ```shell
 /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/LaunchServices.framework/Versions/A/Support/lsregister -kill -r -domain local -domain system -domain user
 ```
 
-Reset launchpad
+## Reset launchpad
 
 ```shell
 defaults write com.apple.dock ResetLaunchPad -bool TRUE;
 ```
 
-Flush DNS cache
+## Flush DNS cache
 
 ```shell
 sudo killall -HUP mDNSResponder;
 ```
 
-Auto discover the proxy and set global proxy
-
-```shell
-scutil --proxy
-export http_proxy=http://127.0.0.1:7890
-export https_proxy=https://127.0.0.1:7890
-export all_proxy=socks5://127.0.0.1:7890
-```
-
-Delete the proxy
-
-```shell
-export http_proxy=
-export https_proxy=
-export all_proxy=
-```
-
-Activate the Env Variable
+## Environment Variable
 
 ```bash
 source ~/.bash_profile
 printenv
 ```
 
-Env
+### Proxy
+
+```shell
+scutil --proxy
+
+# set the proxy
+export http_proxy=http://127.0.0.1:7890
+export https_proxy=https://127.0.0.1:7890
+export all_proxy=socks5://127.0.0.1:7890
+
+# Delete the proxy
+export http_proxy=
+export https_proxy=
+export all_proxy=
+```
+
+### Example
 
 ```shell
 export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
