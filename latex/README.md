@@ -36,7 +36,7 @@ Anything typed before `\begin{document}` is known as the preamble, and will aﬀ
 
 Anything typed after `\end{document}` is ignored.
 
-### Title
+## Title
 
 The `\maketitle` command creates a title.
 
