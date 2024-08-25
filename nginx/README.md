@@ -23,9 +23,16 @@ sudo nginx -s reload
 
 # Reboot
 service nginx restart
+
+# Check running status
+systemctl status nginx
 ```
 
 ## Location Match Rule
+
+```
+location [=|~|~*|^~] /uri/ { … }
+```
 
 1. Exact matching ( = )
 2. Prefix matching, longest path first

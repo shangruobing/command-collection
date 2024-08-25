@@ -12,6 +12,9 @@ cat /etc/os-release
 # View the system information
 uname
 uname -a
+
+# View the glibc version
+ldd --version
 ```
 
 ## Basic Commands
