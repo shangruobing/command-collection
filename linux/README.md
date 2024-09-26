@@ -429,6 +429,7 @@ source ~/.bash_profile
   - change previos file `:N`
   - add a file in edit session `:e output.txt`
   - show the edit file list `:buffers`
+  - clear all content `:%d`
 
 ```shell
 # Create a blank file
@@ -526,6 +527,7 @@ df -h
 # Show the disk usage in the current directory
 du -h .
 du -sh .
+du -sh ./* | sort -h
 
 # Show the disk usage in the directory
 du -h directory

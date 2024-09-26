@@ -358,7 +358,9 @@ To cite multiple references, separate them with commas: `\cite{citation01,citati
 \cite{citation01,citation02,citation03}
 ```
 
-## VS Code Settings
+## VS Code Extension
+
+> LaTeX Workshop
 
 ```json
 {

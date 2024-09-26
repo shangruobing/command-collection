@@ -43,6 +43,17 @@ export https_proxy=
 export all_proxy=
 ```
 
+### Pluginkit
+
+```shell
+# view pluginkit list
+pluginkit  -mAD -p com.apple.FinderSync
+# enable plugin
+pluginkit -e "use" -i "cn.wflixu.RClick.FinderSyncExt"
+# disable plugin
+pluginkit -e "ignore" -i "cn.wflixu.RClick.FinderSyncExt"
+```
+
 ### Example
 
 ```shell

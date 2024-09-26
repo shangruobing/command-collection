@@ -55,3 +55,26 @@ git reset --soft commit_hash
 git reset --hard commit_hash
 ```
 
+## Git-filter-repo
+
+Git-filter-repo is a versatile tool for rewriting history. You can use it to remove large files in commits.
+
+> https://github.com/newren/git-filter-repo
+
+```shell
+# Install
+pip install git-filter-repo
+
+# View files
+git rev-list --objects --all | grep "$(git verify-pack -v .git/objects/pack/*.idx | sort -k 3 -n | tail -10 | awk '{print$1}')"
+
+# Execute delete
+git filter-repo --path "need remove path" --invert-paths --force
+git filter-repo --path-glob '*.pdf' --invert-paths
+
+# Add the remote URL and force push
+git remote -v
+git remote add origin "repo_url"
+git push --force origin --all
+```
+

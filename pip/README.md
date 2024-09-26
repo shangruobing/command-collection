@@ -25,6 +25,12 @@ pip install matplotlib -i https://pypi.mirrors.ustc.edu.cn/simple/
 # Install torch and specify a custom cache directory
 pip install torch --cache-dir=/cache
 
+# Install scipy with no cache
+pip install scipy --no-cache-dir
+
+# Trust the SSL
+pip install icecream --trusted-host pypi.tuna.tsinghua.edu.cn
+
 # Show information about the numpy package
 pip show numpy
 
