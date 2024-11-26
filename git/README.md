@@ -5,6 +5,13 @@ Git is a free and open source distributed version control system designed to han
 It outclasses SCM tools like Subversion, CVS, Perforce, and ClearCase with features like cheap local branching, convenient staging areas, and multiple workflows.
 
 ```shell
+# Configuration
+git config --global core.editor "vim"
+git config --global user.name "name"
+git config --global user.email "email@.com"
+git config --local user.name "name"
+git config --local user.email "email@.com"
+
 # Initialize a new Git repository
 git init
 
@@ -53,6 +60,17 @@ git clean -f -d
 # Reset the special commit record
 git reset --soft commit_hash
 git reset --hard commit_hash
+
+# Merge last 3 commits, set pick to fixup
+git rebase -i HEAD~3
+git push --force
+
+# Modify the last commit message
+git commit --amend
+git push --force
+
+# Delete tracked file in gitignore
+git rm -r --cached file_name
 ```
 
 ## Git-filter-repo

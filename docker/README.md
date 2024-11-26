@@ -86,6 +86,9 @@ sudo docker save -o filename.tar image_name
 
 # Load a image from the offline package
 sudo docker load -i filename.tar
+
+# View the image layers
+sudo docker history image_name
 ```
 
 ## Volume
@@ -131,3 +134,28 @@ sudo docker run -itd --name "container_name" \
   -v /home/ubuntu/project/template:/template \
   "image_name"
 ```
+
+## Dockerfile
+
+```dockerfile
+FROM python:3.12-slim
+
+ENV TZ=Asia/Shanghai
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+
+WORKDIR /app
+
+COPY requirements.txt /app/
+
+RUN ["pip", "install", "--no-cache-dir", "-r" , "requirements.txt", "-i", "https://pypi.tuna.tsinghua.edu.cn/simple"]
+
+RUN ["mkdir", "static"]
+
+COPY app.py/ /app/
+COPY uwsgi.ini/ /app/
+
+EXPOSE 5000
+
+ENTRYPOINT ["uwsgi", "--ini", "uwsgi.ini"]
+```
+

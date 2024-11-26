@@ -391,6 +391,15 @@ Therefore, `nohup` should be used in cases where you need to **run for a long ti
 ```shell
 nohup python main.py > log.txt 2>&1 &
 nohup java -jar backend-0.0.1.jar > log.txt 2>&1 &
+
+# view jobs
+jobs -l
+
+# return current terminal running
+fg pid
+
+# kill job
+kill -9 pid
 ```
 
 ## Environment Variables

@@ -40,8 +40,8 @@ conda create --prefix /home/user/conda-env python=3.12
 vim .condarc
 
 # export and install the dependency
-conda env export > environment.yml
-conda env create -f environment.yml
+conda env export > environment.yaml
+conda env create -f environment.yaml
 conda install --file requirements.txt
 
 # offline package

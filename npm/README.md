@@ -20,5 +20,9 @@ npm outdated
 
 # Run the script in the package.json
 npm run script_name
+
+# Set Registry
+npm config set registry https://registry.npm.taobao.org
+npm config get registry
 ```
 
