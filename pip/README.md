@@ -20,7 +20,7 @@ pip install pandas
 pip install tensorflow -i https://pypi.tuna.tsinghua.edu.cn/simple
 
 # Install tensorflow from the University of Science and Technology of China mirror
-pip install matplotlib -i https://pypi.mirrors.ustc.edu.cn/simple/
+pip install matplotlib -i https://pypi.mirrors.ustc.edu.cn/simple
 
 # Install torch and specify a custom cache directory
 pip install torch --cache-dir=/cache

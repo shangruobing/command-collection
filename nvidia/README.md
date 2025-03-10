@@ -17,6 +17,15 @@ nvcc --version
 
 # install the Nvidia driver
 conda install cuda-nvcc -c "nvidia/label/cuda-12.1.0"
+
+# install cuda 12.3 on ubuntu
+wget https://developer.download.nvidia.com/compute/cuda/12.3.0/local_installers/cuda_12.3.0_545.23.06_linux.run
+sudo sh cuda_12.3.0_545.23.06_linux.run
+echo 'export PATH=/usr/local/cuda-12.3/bin:$PATH' >> ~/.bashrc
+echo 'export LD_LIBRARY_PATH=/usr/local/cuda-12.3/lib64:$LD_LIBRARY_PATH' >> ~/.bashrc
+source ~/.bashrc
 ```
 
 > https://developer.nvidia.cn/cuda-downloads
+
+> https://developer.nvidia.com/cuda-toolkit-archive

@@ -22,3 +22,12 @@ python -m pip install tqdm
 ```
 
 > https://www.python.org/
+
+## line-profiler
+
+```shell
+pip install line-profiler
+
+kernprof -l -v script.py
+```
+

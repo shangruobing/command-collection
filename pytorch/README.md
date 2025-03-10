@@ -2,6 +2,8 @@
 
 PyTorch is an optimized tensor library for deep learning using GPUs and CPUs.
 
+> https://pytorch.org/
+
 ```shell
 # Install
 pip install torch torchvision torchaudio
@@ -30,4 +32,23 @@ print("Device name:", torch.cuda.get_device_name(0))
 print(torch.cuda.memory_allocated(0))
 ```
 
-> https://pytorch.org/
+## Torch Profile
+
+```python
+import torch
+from torch.profiler import profile, record_function, ProfilerActivity
+
+activities = [ProfilerActivity.CPU, ProfilerActivity.CUDA, ProfilerActivity.XPU]
+sort_by_keyword = "cuda" + "_time_total"
+
+with profile(activities=activities, record_shapes=True, profile_memory=True) as prof:
+    with record_function("model_inference"):
+        model = Model().to("cuda")
+        shape = (4, 3, 128, 128)
+        input_tensor = torch.rand(shape).to("cuda")
+        output_features = model(input_tensor)
+        print("Output features shape:", output_features.shape)
+
+key_averages = prof.key_averages(group_by_input_shape=True)
+print(key_averages.table(sort_by=sort_by_keyword, row_limit=10))
+```

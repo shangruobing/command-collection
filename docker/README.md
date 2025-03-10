@@ -159,3 +159,28 @@ EXPOSE 5000
 ENTRYPOINT ["uwsgi", "--ini", "uwsgi.ini"]
 ```
 
+## Mirror
+
+```shell
+sudo mkdir -p /etc/docker 
+ 
+sudo tee /etc/docker/daemon.json <<-'EOF'
+{
+    "registry-mirrors": [
+        "https://docker.m.daocloud.io",
+        "https://docker.imgdb.de",
+        "https://docker-0.unsee.tech",
+        "https://docker.hlmirror.com",
+        "http://hub-mirror.c.163.com",
+        "https://registry.docker-cn.com",
+        "https://docker.mirrors.ustc.edu.cn",
+        "https://docker.1panel.live",
+        "https://hub.rat.dev"
+    ]
+}
+EOF 
+ 
+sudo systemctl daemon-reload 
+sudo systemctl restart docker 
+```
+
