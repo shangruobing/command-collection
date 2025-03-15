@@ -95,6 +95,15 @@ sudo docker history image_name
 
 ```shell
 sudo docker volume create volume-name
+
+# View all volume
+sudo docker volume ls
+
+# Delete the volume
+sudo docker volume rm volume-name
+
+# Delete all unused volume
+sudo docker volume prune
 ```
 
 ## Docker Building Error
@@ -167,6 +176,7 @@ sudo mkdir -p /etc/docker
 sudo tee /etc/docker/daemon.json <<-'EOF'
 {
     "registry-mirrors": [
+        "https://register.librax.org",
         "https://docker.m.daocloud.io",
         "https://docker.imgdb.de",
         "https://docker-0.unsee.tech",
@@ -178,6 +188,7 @@ sudo tee /etc/docker/daemon.json <<-'EOF'
         "https://hub.rat.dev"
     ]
 }
+
 EOF 
  
 sudo systemctl daemon-reload 

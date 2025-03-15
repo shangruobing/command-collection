@@ -1,5 +1,7 @@
 # Ollama
 
+Get up and running with large language models.
+
 ```shell
 ollama list
 ollama serve

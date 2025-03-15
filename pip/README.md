@@ -43,3 +43,21 @@ pip install -r requirements.txt
 # Install the package without installing its dependencies
 pip install package --no-deps
 ```
+
+### Set Default Mirror
+
+```shell
+# Linux and Mac
+mkdir -p ~/.config/pip
+echo "[global]
+index-url = https://pypi.tuna.tsinghua.edu.cn/simple" > ~/.config/pip/pip.conf
+
+# Windows
+mkdir C:\Users\%USERNAME%\pip
+echo [global] > C:\Users\%USERNAME%\pip\pip.ini
+echo index-url = https://pypi.tuna.tsinghua.edu.cn/simple >> C:\Users\%USERNAME%\pip\pip.ini
+
+# Check
+pip config list
+```
+
