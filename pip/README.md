@@ -42,6 +42,9 @@ pip install -r requirements.txt
 
 # Install the package without installing its dependencies
 pip install package --no-deps
+
+# Remove all packages
+pip freeze | xargs pip uninstall -y
 ```
 
 ### Set Default Mirror

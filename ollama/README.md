@@ -30,6 +30,7 @@ Description=Ollama Service
 After=network-online.target
 
 [Service]
+Environment="OLLAMA_HOST=0.0.0.0"
 ExecStart=/usr/bin/ollama serve
 # ExecStart=/usr/local/bin/ollama serve
 User=ollama

@@ -16,3 +16,17 @@ sudo ./neo4j status
 # import the data
 ./neo4j-admin  load --from=/home/data/graph-dbms-neo4j.dump --database=yourdb
 ```
+
+### Can’t open Neo4j Desktop UI
+
+> /Users/UserName/Library/Application Support/Neo4j Desktop/Application/persist/userData.json
+```json
+{
+  "appSettings": {
+    "proxyHost": "http://127.0.0.1",
+    "proxyPort": "7890",
+    "proxyType": "HTTP_PROXY"
+  }
+}
+```
+

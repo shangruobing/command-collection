@@ -9,8 +9,8 @@ nvidia-smi
 # format the output
 nvidia-smi --query-gpu=name --format=csv,noheader
 
-# check the usage of GPU every 5 seconds
-watch -n 5 -d nvidia-smi
+# check the usage of GPU every 3 seconds
+watch -n 3 -d nvidia-smi
 
 # check the Nvidia driver version
 nvcc --version

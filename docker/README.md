@@ -67,6 +67,12 @@ sudo docker images
 # Remove image by Id
 sudo docker rmi -f image_id
 
+# Remove all dangling images
+sudo docker image prune
+
+# Remove all unused images
+sudo docker image prune -a
+
 # View the container log
 sudo docker logs -f container_id
 
@@ -104,6 +110,9 @@ sudo docker volume rm volume-name
 
 # Delete all unused volume
 sudo docker volume prune
+
+# Inspect the volume
+docker volume inspect volume-name
 ```
 
 ## Docker Building Error
@@ -193,5 +202,11 @@ EOF
  
 sudo systemctl daemon-reload 
 sudo systemctl restart docker 
+```
+
+### Builds Application Error 
+
+```json
+sudo chown -R $(id -un):$(id -gn) ~/.docker/buildx
 ```
 
