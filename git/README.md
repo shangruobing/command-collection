@@ -71,6 +71,10 @@ git push --force
 
 # Delete tracked file in gitignore
 git rm -r --cached file_name
+
+# View the Signature
+git log --show-signature
+git log --pretty="%G?" | sort | uniq -c
 ```
 
 ## Git-filter-repo

@@ -45,6 +45,9 @@ pip install package --no-deps
 
 # Remove all packages
 pip freeze | xargs pip uninstall -y
+
+# Remove all packages (Windows)
+pip freeze | ForEach-Object { pip uninstall $_ -y }
 ```
 
 ### Set Default Mirror
