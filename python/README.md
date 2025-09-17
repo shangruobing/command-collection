@@ -30,4 +30,3 @@ pip install line-profiler
 
 kernprof -l -v script.py
 ```
-

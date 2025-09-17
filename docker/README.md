@@ -209,4 +209,3 @@ sudo systemctl restart docker
 ```json
 sudo chown -R $(id -un):$(id -gn) ~/.docker/buildx
 ```
-

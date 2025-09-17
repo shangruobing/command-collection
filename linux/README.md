@@ -43,7 +43,6 @@ which command
 help command
 
 # Show the manual of the program
-# 显示程序的手册
 man program
 
 # Show the description of the command
@@ -565,7 +564,6 @@ fdformat device_name
 ## Curl
 
 ```shell
-# CURL
 curl http://127.0.0.1:8000/api/ping
 
 curl -X POST \

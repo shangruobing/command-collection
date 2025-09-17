@@ -139,4 +139,3 @@ kubectl config view
 # View application logs for a container in a pod.
 kubectl logs container_name
 ```
-

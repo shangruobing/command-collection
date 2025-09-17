@@ -17,4 +17,3 @@ choco uninstall package_name
 
 choco list
 ```
-

@@ -66,4 +66,3 @@ echo index-url = https://pypi.tuna.tsinghua.edu.cn/simple >> C:\Users\%USERNAME%
 # Check
 pip config list
 ```
-

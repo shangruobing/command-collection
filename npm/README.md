@@ -25,4 +25,3 @@ npm run script_name
 npm config set registry https://registry.npm.taobao.org
 npm config get registry
 ```
-

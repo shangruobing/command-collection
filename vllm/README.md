@@ -49,4 +49,3 @@ content = response.choices[0].message.content
 print("reasoning_content:", reasoning_content)
 print("content:", content)
 ```
-

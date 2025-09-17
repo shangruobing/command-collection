@@ -29,4 +29,3 @@ sudo ./neo4j status
   }
 }
 ```
-

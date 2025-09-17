@@ -25,4 +25,3 @@
 	"line_padding_bottom": 2,
 }
 ```
-
