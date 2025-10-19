@@ -4,10 +4,7 @@
 
 ```json
 {
-	"ignored_packages":
-	[
-		"Vintage",
-	],
+	"ignored_packages":[],
 	"theme": "GitHub Light.sublime-theme",
 	"color_scheme": "GitHub Light.sublime-color-scheme",
 	"font_size": 18,

@@ -206,6 +206,6 @@ sudo systemctl restart docker
 
 ### Builds Application Error 
 
-```json
+```shell
 sudo chown -R $(id -un):$(id -gn) ~/.docker/buildx
 ```

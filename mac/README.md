@@ -6,6 +6,12 @@ macOS is an operating system developed by Apple that runs on Macintosh computers
 
 ```shell
 /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/LaunchServices.framework/Versions/A/Support/lsregister -kill -r -domain local -domain system -domain user
+
+cd /System/Library/Frameworks
+cd CoreServices.framework/Frameworks/LaunchServices.framework/Support
+./lsregister -kill -r -domain local -domain system -domain user
+
+killall Finder
 ```
 
 ## Reset launchpad
